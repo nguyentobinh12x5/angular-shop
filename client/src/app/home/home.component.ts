@@ -35,7 +35,7 @@ export class HomeComponent {
   displayAddPopup: boolean = false;
 
   toggleEditPopup(product: Product) {
-    this.selectedProduct = product;
+    this.selectedProduct = { ...product };
     this.displayEditPopup = !this.displayEditPopup;
   }
 
@@ -59,12 +59,11 @@ export class HomeComponent {
     image: '',
   };
 
-  onConfirmEdit(product: Product) {
+  onConfirmEdit(selectedProduct: Product) {
     if (!this.selectedProduct.id) {
       return;
     }
-
-    this.editProduct(product, this.selectedProduct.id);
+    this.editProduct(selectedProduct, this.selectedProduct.id);
     this.displayEditPopup = false;
   }
 
