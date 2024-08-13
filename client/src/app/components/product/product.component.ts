@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmationService } from 'primeng/api';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { PricePipe } from '../../pipes/price.pipe';
+import { TruncateNamePipe } from '../../pipes/truncate-name.pipe';
 
 @Component({
   selector: 'app-product',
@@ -22,6 +24,8 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
     FormsModule,
     ButtonModule,
     ConfirmPopupModule,
+    PricePipe,
+    TruncateNamePipe,
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
