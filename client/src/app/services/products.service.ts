@@ -19,4 +19,32 @@ export class ProductsService {
       responseType: 'json',
     });
   };
+
+  // Getting a single product from the API
+  getProduct = (url: string): Observable<Product> => {
+    return this.apiService.get(url, {
+      responseType: 'json',
+    });
+  };
+
+  // Creating a new product
+  addProduct = (url: string, product: Product): Observable<Product> => {
+    return this.apiService.post(url, product, {
+      responseType: 'json',
+    });
+  };
+
+  // Updating a product
+  editProduct = (url: string, product: Product): Observable<Product> => {
+    return this.apiService.put(url, product, {
+      responseType: 'json',
+    });
+  };
+
+  // Deleting a product
+  deleteProduct = (url: string): Observable<Product> => {
+    return this.apiService.delete(url, {
+      responseType: 'json',
+    });
+  };
 }
