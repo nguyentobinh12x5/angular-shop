@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { Paginator, PaginatorModule } from 'primeng/paginator';
 import { EditPopupComponent } from '../components/edit-popup/edit-popup.component';
 import { ButtonModule } from 'primeng/button';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -21,7 +22,10 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private productsService: ProductsService,
+    private router: Router
+  ) {}
 
   @ViewChild('paginator') paginator: Paginator | undefined;
 
@@ -74,6 +78,10 @@ export class HomeComponent {
 
   onPageChange(event: any) {
     this.fetchProducts(event.page, event.rows);
+  }
+
+  navigateToProductDetails(productId: number) {
+    this.router.navigate(['/product', productId]);
   }
 
   resetPaginator() {

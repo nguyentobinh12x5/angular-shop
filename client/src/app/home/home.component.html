@@ -15,6 +15,9 @@
       [product]="product"
       (edit)="toggleEditPopup($event)"
       (delete)="toggleDeletePopup($event)"
+      (click)="
+        product.id !== undefined ? navigateToProductDetails(product.id) : null
+      "
     ></app-product>
   </div>
   <!-- Paginator -->
